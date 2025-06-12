@@ -1,5 +1,6 @@
 # Визуализация выравнивания аминокислотных последовательностей
 
+https://evgenya2000.github.io/alignment/
 Данное React приложение является инструментом для
 визуализации [выравнивания аминокислотных последовательностей](https://biomolecula.ru/articles/12-metodov-v-kartinkakh-sukhaia-biologiia).
 
