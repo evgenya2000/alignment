@@ -1,0 +1,22 @@
+export const colorMap = {
+    "C": "--yellow",
+    "A": "--green",
+    "I": "--green",
+    "L": "--green",
+    "M": "--green",
+    "F": "--green",
+    "W": "--green",
+    "Y": "--green",
+    "V": "--green",
+    "P": "--green",
+    "G": "--gray",
+    "D": "--pink",
+    "E": "--pink",
+    "K": "--purple",
+    "R": "--purple",
+    "S": "--blue",
+    "T": "--blue",
+    "H": "--blue",
+    "Q": "--blue",
+    "N": "--blue"
+}

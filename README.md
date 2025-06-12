@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# Визуализация выравнивания аминокислотных последовательностей
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Данное React приложение является инструментом для
+визуализации [выравнивания аминокислотных последовательностей](https://biomolecula.ru/articles/12-metodov-v-kartinkakh-sukhaia-biologiia).
 
-## Available Scripts
+### Описание
 
-In the project directory, you can run:
+Форма приложения содержит 2 поля для ввода аминокислотных последовательностей и кнопку, по клику по которой ниже появляется визуализация выравнивания.
 
-### `npm start`
+В верхней строке каждая буква окрашена фоном в свой цвет в соответствии со свойствами аминокислот
+![color_scheme.png](./img/color_scheme.png)
+В нижней строке фоном выделены только буквы, отличающиеся от соответствующей по индексу буквы в строке выше.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Правила ввода
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Поля аминокислотных последовательностей должны принимают строки следующего формата:`VLSPADKTNIKASWEKIGSHG`
+- Поля обязательны для заполнения и могут содержать только латинские буквы аминокислот (A, R, N, D, C, E, Q, G, H, I,
+  L, K, M, F, P, S, T, W, Y, V) и символ `-`
+- Длина введенных последовательностей в обоих полях должна быть одинаковая
 
-### `npm test`
+### Пример
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Визуализация двух выровненных последовательностей:
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `MGKKGYKRNEYNNPFQQAWANPKHAWAQVNGETRLTQNLIILERETRKRS-`
+- `MSTK-DQLDPQSQAFHHNWTRPKHASSQVNGHTEMSQHNIILRRVPRSGRR`
+![example.png](./img/example.png)

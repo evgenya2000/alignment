@@ -1,0 +1,155 @@
+@use "variables" as *;
+@use 'functions' as *;
+
+@mixin media-breakpoint-up($name) {
+  @media (min-width: #{map-get($breakpointsMedia, $name)}px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($name) {
+  @media (max-width: #{map-get($breakpointsMedia, $name) - 1}px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-range($from, $to) {
+  @include media-breakpoint-up($from) {
+    @include media-breakpoint-down($to) {
+      @content;
+    }
+  }
+}
+
+@mixin adaptiveHardValues(
+  $property,
+  $mobile,
+  $tablet-768,
+  $desktop-1280,
+  $desktop-1440,
+  $desktop-1920,
+  $rem: false
+) {
+  @if $mobile {
+    @if $rem {
+      #{$property}: rem($mobile);
+    } @else {
+      #{$property}: #{$mobile}px;
+    }
+  }
+
+  @if $tablet-768 {
+    @include media-breakpoint-up(md) {
+      @if $rem {
+        #{$property}: rem($tablet-768);
+      } @else {
+        #{$property}: #{$tablet-768}px;
+      }
+    }
+  }
+
+  @if $desktop-1280 {
+    @include media-breakpoint-up(xl) {
+      @if $rem {
+        #{$property}: rem($desktop-1280);
+      } @else {
+        #{$property}: #{$desktop-1280}px;
+      }
+    }
+  }
+
+  @if $desktop-1440 {
+    @include media-breakpoint-up(xxl) {
+      @if $rem {
+        #{$property}: rem($desktop-1440);
+      } @else {
+        #{$property}: #{$desktop-1440}px;
+      }
+    }
+  }
+
+  @if $desktop-1920 {
+    @include media-breakpoint-up(fhd) {
+      @if $rem {
+        #{$property}: rem($desktop-1920);
+      } @else {
+        #{$property}: #{$desktop-1920}px;
+      }
+    }
+  }
+}
+
+/* Адаптивные значения свойств для всех допустимых разрешений в единицах vw/vh, с возможностью ограничить минимальным
+ и максимальным значением, если передать в качестве значения список из 3х элементов в порядке параметров css-функции clamp. */
+@mixin smooth-offset(
+  $property,
+  $mobile,
+  $tablet-md,
+  $desktop-xl,
+  $desktop-xxl,
+  $desktop-fhd,
+  $vh: false
+) {
+  @if $mobile {
+        @if length($mobile) == 3 {
+            $min: nth($mobile, 1);
+            $value: nth($mobile, 2);
+            $max: nth($mobile, 3);
+            #{$property}: clamp(#{$min}px, if($vh, vh($value, xs), vw($value, xs)), #{$max}px);
+        } @else {
+            #{$property}: if($vh, vh($mobile, xs), vw($mobile, xs));
+        }
+    }
+
+    @if $tablet-md {
+        @include media-breakpoint-up(md) {
+            @if length($tablet-md) == 3 {
+                $min: nth($tablet-md, 1);
+                $value: nth($tablet-md, 2);
+                $max: nth($tablet-md, 3);
+                #{$property}: clamp(#{$min}px, if($vh, vh($value, md), vw($value, md)), #{$max}px);
+            } @else {
+                #{$property}: if($vh, vh($tablet-md, md), vw($tablet-md, md));
+            }
+        }
+    }
+
+    @if $desktop-xl {
+        @include media-breakpoint-up(xl) {
+            @if length($desktop-xl) == 3 {
+                $min: nth($desktop-xl, 1);
+                $value: nth($desktop-xl, 2);
+                $max: nth($desktop-xl, 3);
+                #{$property}: clamp(#{$min}px, if($vh, vh($value, xl), vw($value, xl)), #{$max}px);
+            } @else {
+                #{$property}: if($vh, vh($desktop-xl, xl), vw($desktop-xl, xl));
+            }
+        }
+    }
+
+    @if $desktop-xxl {
+        @include media-breakpoint-up(xxl) {
+            @if length($desktop-xxl) == 3 {
+                $min: nth($desktop-xxl, 1);
+                $value: nth($desktop-xxl, 2);
+                $max: nth($desktop-xxl, 3);
+                #{$property}: clamp(#{$min}px, if($vh, vh($value, xxl), vw($value, xxl)), #{$max}px);
+            } @else {
+                #{$property}: if($vh, vh($desktop-xxl, xxl), vw($desktop-xxl, xxl));
+            }
+        }
+    }
+
+    @if $desktop-fhd {
+        @include media-breakpoint-up(fhd) {
+            @if length($desktop-fhd) == 3 {
+                $min: nth($desktop-fhd, 1);
+                $value: nth($desktop-fhd, 2);
+                $max: nth($desktop-fhd, 3);
+                #{$property}: clamp(vw($min), if($vh, vh($value), vw($value)), vw($max));
+            } @else {
+                #{$property}: Min(#{vw($desktop-fhd)}, if($vh, vh($desktop-fhd), vw($desktop-fhd)));
+            }
+        }
+    }
+}

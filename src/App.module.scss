@@ -1,0 +1,25 @@
+@use "./style/common" as *;
+
+.root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include adaptiveHardValues(padding, 20, 30, 40, false, 50);
+  @include smooth-offset(--offset-gap, 10, false, false, 15, false);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--offset-gap);
+    max-width: 910px;
+    width: 100%;
+    @include adaptiveHardValues(margin-top, 10, false, 15, false, 20);
+
+    @include media-breakpoint-up(md) {
+      width: 50%;
+    }
+  }
+}

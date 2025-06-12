@@ -1,0 +1,13 @@
+@use "../style/common" as *;
+
+.root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+  &Field {
+    width: 100%;
+  }
+}
