@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/alignment/static/css/main.4a522c6c.css",
+    "main.js": "/alignment/static/js/main.29cb2012.js",
+    "static/js/453.0b3f01bf.chunk.js": "/alignment/static/js/453.0b3f01bf.chunk.js",
+    "index.html": "/alignment/index.html",
+    "main.4a522c6c.css.map": "/alignment/static/css/main.4a522c6c.css.map",
+    "main.29cb2012.js.map": "/alignment/static/js/main.29cb2012.js.map",
+    "453.0b3f01bf.chunk.js.map": "/alignment/static/js/453.0b3f01bf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a522c6c.css",
+    "static/js/main.29cb2012.js"
+  ]
+}
